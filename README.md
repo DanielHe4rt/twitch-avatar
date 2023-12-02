@@ -2,6 +2,7 @@
 
 A simple way to find your favorite streamer avatar.
 
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F41d7e568-4696-4ab4-b2b2-0995e6c88109%3Fdate%3D1&style=plastic)](https://forge.laravel.com/servers/724245/sites/2181916)
 ## Why code that
 
 Since Twitch doesn't have a endpoint to retrieve the streamer's avatar easily like "twitch.tv/danielhe4rt.png", me as a
