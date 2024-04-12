@@ -13,7 +13,7 @@ class AvatarService
 
     }
 
-    public function downloadAvatarImage(string $username): void
+    public function fetchAvatarUrl(string $username): string
     {
         $twitchUserResponse = $this->client->getUsers([$username]);
         $twitchUserJson = $twitchUserResponse->json()['data'][0] ?? null;
@@ -23,8 +23,14 @@ class AvatarService
             throw TwitchException::userNotFound($username);
         }
 
+        return $twitchUserJson['profile_image_url'];
+    }
+
+    public function downloadAvatarImage(string $username): void
+    {
+        $avatarUrl = $this->fetchAvatarUrl($username);
+
         $storagePath = sprintf('avatars/' . $username . '.png');
-        $avatarUrl = $twitchUserJson['profile_image_url'];
         Storage::put($storagePath, file_get_contents($avatarUrl));
     }
 }

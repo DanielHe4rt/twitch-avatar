@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{avatar}.png', [AvatarController::class, 'getAvatar'])->name('get-avatar');
+Route::get("/{avatar}.png", [AvatarController::class,"redirectToAvatar"])->name("redirect-avatar");
+Route::get("/file/{avatar}.png", [AvatarController::class, "getAvatar"])->name("get-avatar");
